@@ -60,6 +60,25 @@ class LinkedList:
             temp.next = self.tail
         self.size += 1
 
+    def insert_after(self, data, node_data):
+        # Make sure that Pete exists
+        temp = None
+        current = self.head 
+        while current:
+            if current.data == node_data:
+                print('Found Pete')
+                temp = current
+            current = current.next
+        if temp == None:
+            return "Check your node_data, we couldn't find node"
+        
+        # Find Pete node!
+        # Create a new data Node
+        new_node = Node(data, temp.next)
+        # Set new data Node to Pete.next
+        # Set Pete.next to the new Node
+        temp.next = new_node
+
 
 rome_list = LinkedList()
 rome_list.insert_front('Adam')
@@ -68,6 +87,8 @@ rome_list.insert_front('Taylor')
 
 rome_list.insert_end('Dan')
 rome_list.insert_end('Mads')
+
+rome_list.insert_after('Jennifer', 'Taylor')
 
 print(len(rome_list))
 print(rome_list)
