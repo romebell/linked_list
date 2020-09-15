@@ -68,6 +68,7 @@ class LinkedList:
             if current.data == node_data:
                 print('Found Pete')
                 temp = current
+                break
             current = current.next
         if temp == None:
             return "Check your node_data, we couldn't find node"
