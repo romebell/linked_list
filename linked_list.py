@@ -47,10 +47,28 @@ class LinkedList:
             self.head = Node(data, temp)
         self.size += 1
 
+    def insert_end(self, data):
+        if self.size == 0:
+            self.head = Node(data, None)
+            self.tail = self.head
+        # elif self.size == 1:
+        #     self.tail = Node(data, None)
+        #     self.head.next = self.tail
+        else:
+            temp = self.tail
+            self.tail = Node(data, None)
+            temp.next = self.tail
+        self.size += 1
+
 
 rome_list = LinkedList()
 rome_list.insert_front('Adam')
 rome_list.insert_front('Pete')
 rome_list.insert_front('Taylor')
+
+rome_list.insert_end('Dan')
+rome_list.insert_end('Mads')
+
 print(len(rome_list))
 print(rome_list)
+
